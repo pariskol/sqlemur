@@ -42,7 +42,7 @@ public class Example {
         sqlemur.checkConnection(); // Test connection
 
         // Execute a simple query
-        var rows = sqlEmsqlemurur.executeQueryToList(
+        var rows = sqlemur.executeQueryToList(
             "SELECT * FROM users WHERE age > ?",
             Arrays.asList(18)
         );
