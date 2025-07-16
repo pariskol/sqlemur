@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Properties;
 
-public class PropertiesLoader {
+public class SQLemurProperties {
 
 	private static HashMap<String, Properties> propertiesMap = new HashMap<>();
 	
