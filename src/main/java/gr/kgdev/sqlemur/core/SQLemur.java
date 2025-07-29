@@ -30,7 +30,7 @@ public class SQLemur {
 		this.driver = driver;
 		this.user = user;
 		this.password = password;
-		dataSource = this.initDatasource();
+		this.dataSource = this.initDatasource();
 	}
 
 	protected DataSource initDatasource() {
@@ -411,8 +411,6 @@ public class SQLemur {
 			transaction.run(conn);
 			conn.commit();
 			conn.setAutoCommit(true);
-		} catch(SQLException ex) {
-			throw ex;
 		}
 	}
 
