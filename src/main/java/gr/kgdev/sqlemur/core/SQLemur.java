@@ -401,7 +401,7 @@ public class SQLemur {
 		}
 	}
 
-	private Connection getConnection() throws SQLException {
+	protected Connection getConnection() throws SQLException {
 		return dataSource.getConnection();
 	}
 
