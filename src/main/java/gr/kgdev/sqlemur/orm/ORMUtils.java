@@ -154,7 +154,7 @@ public class ORMUtils {
 		}
 	}
 	
-	private static String toCamelCase(String str) {
+	public static String toCamelCase(String str) {
 		var parts = str.toLowerCase().split("_");
 		var camelCaseString = "";
 		for (var part : parts) {
