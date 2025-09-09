@@ -407,10 +407,16 @@ public class SQLemur {
 
 	public void transaction(SqlTransaction transaction) throws SQLException {
 		try (var conn = dataSource.getConnection()) {
-			conn.setAutoCommit(false);
-			transaction.run(conn);
-			conn.commit();
-			conn.setAutoCommit(true);
+			try {
+				conn.setAutoCommit(false);
+				transaction.run(conn);
+				conn.commit();
+			} catch (Throwable t) {
+				rollbackQuitely(conn);
+				throw t;
+			} finally {
+				conn.setAutoCommit(true);
+			}
 		}
 	}
 
