@@ -1,5 +1,7 @@
 
-# <img src="https://www.svgrepo.com/show/252871/lemur.svg" alt="SQLemur Logo" width="50"/> SQLemur  
+<p align="center">
+<img src="sqlemur-logo.png" alt="Logo" width="300"/>
+</p>
 
 **SQLemur** is a lightweight JDBC wrapper for Java that simplifies executing SQL queries, updates, and stored procedures while providing convenient mapping utilities for converting `ResultSet` rows to `Map` or custom objects.  
 
