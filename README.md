@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="sqlemur-logo.png" alt="Logo" width="300"/>
+<img src="sqlConnector-logo.png" alt="Logo" width="300"/>
 </p>
 
 **SQLemur** is a lightweight JDBC wrapper for Java that simplifies executing SQL queries, updates, and stored procedures while providing convenient mapping utilities for converting `ResultSet` rows to `Map` or custom objects.  
@@ -28,23 +28,23 @@ Make sure to include a compatible JDBC driver and Apache DBCP2 (for the datasour
 ## Quick Start
 
 ```java
-import gr.kgdev.sqlemur.core.SQLemur;
+import gr.kgdev.sqlemur.core.SqlConnector;
 import java.util.Map;
 import java.util.Arrays;
 
 public class Example {
     public static void main(String[] args) throws Exception {
-        var sqlemur = new SQLemur(
+        var sqlConnector = new SqlConnector(
             "org.postgresql.Driver",
             "jdbc:postgresql://localhost:5432/mydb",
             "myuser",
             "mypassword"
         );
 
-        sqlemur.checkConnection(); // Test connection
+        sqlConnector.checkConnection(); // Test connection
 
         // Execute a simple query
-        var rows = sqlemur.executeQueryToList(
+        var rows = sqlConnector.executeQueryToList(
             "SELECT * FROM users WHERE age > ?",
             Arrays.asList(18)
         );
@@ -54,14 +54,14 @@ public class Example {
         }
 
         // Execute an update
-        var rowsAffected = sqlemur.executeUpdate(
+        var rowsAffected = sqlConnector.executeUpdate(
             "UPDATE users SET active = ? WHERE last_login < ?",
             Arrays.asList(false, "2023-01-01")
         );
 
         // Execute a transaction
-        sqlemur.transaction(conn -> {
-            sqlemur.executeUpdate(conn, "DELETE FROM sessions WHERE expired = ?", Arrays.asList(true));
+        sqlConnector.transaction(conn -> {
+            sqlConnector.executeUpdate(conn, "DELETE FROM sessions WHERE expired = ?", Arrays.asList(true));
         });
     }
 }
@@ -124,7 +124,7 @@ queries ca be mapped to class using:
 
 ``` java 
 	// Query all users and map results to User objects
-	List<User> users = sqlemur.executeQueryToList(
+	List<User> users = sqlConnector.executeQueryToList(
 		"SELECT id, first_name, last_name, email FROM users",
 		User.class
 	);
