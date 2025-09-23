@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="sqlConnector-logo.png" alt="Logo" width="300"/>
+<img src="sqlemur-logo.png" alt="Logo" width="300"/>
 </p>
 
 **SQLemur** is a lightweight JDBC wrapper for Java that simplifies executing SQL queries, updates, and stored procedures while providing convenient mapping utilities for converting `ResultSet` rows to `Map` or custom objects.  
