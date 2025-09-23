@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 
 import gr.kgdev.sqlemur.orm.ORMUtils;
 
-public class SQLemur {
+public class SqlConnector {
 
 	private static final List<Object> EMPTY_LIST = Collections.emptyList();
 	private DataSource dataSource;
@@ -25,7 +25,7 @@ public class SQLemur {
 	private String password;
 	private boolean isCcMode = false;
 
-	public SQLemur(String driver, String url, String user, String password) {
+	public SqlConnector(String driver, String url, String user, String password) {
 		this.url = url;
 		this.driver = driver;
 		this.user = user;
